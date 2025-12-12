@@ -3,6 +3,9 @@ const displayNumList = document.getElementById(`numbers-list`);
 const displayCountdown = document.getElementById(`countdown`);
 const displayInstructions = document.getElementById(`instructions`);
 const displayForm = document.getElementById(`answers-form`);
+const userInputs = document.querySelectorAll(`.form-control`);
+
+
 
 //Genero 5 numeri casuali univoci nell'intervallo [1, 99].
 const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 50, 5);
@@ -35,11 +38,24 @@ const intervalId = setInterval(function(){
 
 }, 1000);
 
-// Aggiunto evento submit
+// Aggiunto evento submit: voglio confrontare gli utenti inseriti dall utente con quelli generati.
 displayForm.addEventListener(`submit`,function(e){
-    e.preventDefault(); // prevengo il comportamento di default, la pagina non viene ricaricata
+    e.preventDefault(); // prevengo il comportamento di default: la pagina non viene ricaricata.
+
+    const numArrUser = []; 
+    
+    // inserisco nell'array i numeri submitted dall'utente:
+    for(let i=0; i<userInputs.length; i++){
+        numArrUser.push(Number(userInputs[i].value));
+    }
+    console.log(numArrUser);
+
+    // vado a confrontare i numeri generati, con quelli submitted dall'utente:
+    
 
 });
+
+
 
 
 
