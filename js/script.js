@@ -1,12 +1,29 @@
 // Seleziono gli elementi dal mio HTML
 const displayNumList = document.getElementById(`numbers-list`);
 const displayCountdown = document.getElementById(`countdown`);
+const displayInstructions = document.getElementById(`instructions`);
 
 //Genero 5 numeri casuali univoci nell'intervallo [1, 99].
 const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 99, 5);
 
 //Aggiungo nel <ul> i numeri dentro numArr come <li>
 addElementLi(numArr);
+
+// Creo un intervallo che chiama la funzione ogni 1000 millisecondi (1 secondo)
+let timeLeft = 30;
+const intervalId = setInterval(function(){
+    // Decremento il tempo, aggiorno il Countdown in display, e fermo l'intervallo quando arrivo a 0.
+    timeLeft--;
+    displayCountdown.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+        clearInterval(intervalId);
+        displayInstructions.textContent = `Tempo scaduto!`;
+    }
+
+}, 1000);
+
+
 
 
 
@@ -43,3 +60,4 @@ function addElementLi(arr) {
         displayNumList.appendChild(newListItem);
     }
 }
+
