@@ -61,6 +61,9 @@ displayForm.addEventListener(`submit`,function(e){
     
     }
 
+    // il software dice quanti e quali dei numeri sono stati individuati.
+    console.log(`userInputsArr: ${userInputsArr}`);
+    console.log(`counter: ${counter}`);
 
 });
 
