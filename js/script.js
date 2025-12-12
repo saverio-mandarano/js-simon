@@ -15,7 +15,7 @@ const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 50, 5);
 addElementLi(numArr);
 
 // Creo un intervallo che chiama la funzione ogni 1000 millisecondi (1 secondo)
-let timeLeft = 1;
+let timeLeft = 10;
 const intervalId = setInterval(function(){
     // Decremento il tempo, aggiorno il Countdown in display.
     timeLeft--;
@@ -74,7 +74,15 @@ displayForm.addEventListener(`submit`,function(e){
     }
 
     // il software dice quanti e quali dei numeri sono stati individuati.
-    displayMessage.textContent = `Hai individuato ${userNumIdentified.length} numeri: ${userNumIdentified.join(", ")} `;
+    if(userNumIdentified.length === 5){  // cambio messaggio e text color in caso di vittoria dell'user.
+        
+        displayMessage.classList.add(`text-success`);
+        displayMessage.classList.remove(`text-danger`);
+        displayMessage.textContent = `Hai vinto!`
+    }
+    else{
+        displayMessage.textContent = `Hai individuato ${userNumIdentified.length} numeri: ${userNumIdentified.join(", ")} `;
+    }
 
 });
 
