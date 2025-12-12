@@ -21,7 +21,7 @@ const intervalId = setInterval(function(){
     // 1. fermo il countdown quando arrivo a 0.
     if (timeLeft <= 0) {
         clearInterval(intervalId);
-        displayInstructions.textContent = `Tempo scaduto! Inserisci i numeri.`;
+        displayInstructions.textContent = `Tempo scaduto! Inserisci i numeri nell'ordine che preferisci.`;
 
 
         // 2. nascondo i numeri precedentemente generati a display:
@@ -35,6 +35,10 @@ const intervalId = setInterval(function(){
 
 }, 1000);
 
+//
+displayForm.addEventListener(`submit`,function(e){
+
+});
 
 
 
