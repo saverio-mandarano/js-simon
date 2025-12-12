@@ -1,3 +1,14 @@
+const displayNumList = document.getElementById(`numbers-list`);
+
+//Genero 5 numeri casuali univoci nell'intervallo [1, 99].
+const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 99, 5);
+
+
+
+
+
+//Funzioni:
+
 //Genera intero random nell'internvallo [min, max]. 
 function getRandomIntInclusive(min, max) { 
   const minCeiled = Math.ceil(min); 
@@ -6,7 +17,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 //Crea un array di nNumbers interi random "univoci" nell'intervallo [min, max].
-function getRandomIntInclsuiveArrayWithMaxLength(nMin, nMax, nNumbers) {
+function getRandomIntInclusiveArrayWithMaxLength(nMin, nMax, nNumbers) {
     const numArr = [];
 
     while (numArr.length < nNumbers) {
@@ -18,4 +29,13 @@ function getRandomIntInclsuiveArrayWithMaxLength(nMin, nMax, nNumbers) {
     }
 
     return numArr
+}
+
+// Aggiunge ogni elemento dell'array arr come <li> della lista <ul id="numbers-list">
+function addElementLi(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const newListItem = document.createElement("li");
+        newListItem.textContent = arr[i];
+        displayNumList.appendChild(newListItem);
+    }
 }
