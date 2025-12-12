@@ -5,7 +5,7 @@ const displayInstructions = document.getElementById(`instructions`);
 const displayForm = document.getElementById(`answers-form`);
 
 //Genero 5 numeri casuali univoci nell'intervallo [1, 99].
-const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 99, 5);
+const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 50, 5);
 
 //Aggiungo nel <ul> i numeri dentro numArr come <li>
 addElementLi(numArr);
