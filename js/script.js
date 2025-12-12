@@ -44,21 +44,32 @@ displayForm.addEventListener(`submit`,function(e){
     e.preventDefault(); // prevengo il comportamento di default: la pagina non viene ricaricata.
     
     let value;
-    const userInputsArr = [];
+    const userNumIdentified = [];
+    const userNumInputArr = [];
 
     for(let i=0; i<userInputs.length; i++){
         const inputValue = userInputs[i].value.trim(); //tolgo spazi vuoti all'inzio e alla fine.
         value = Number(inputValue); //conversione stringa in numero.
 
+        // confronto il numero inserito, con quelli già inseriti dall'utente:
+        if(userNumInputArr.includes(value)){
+            displayMessage.textContent = `Hai inserito due volte lo stesso numero, riprova!`;
+            return
+        }
+        else{
+            userNumInputArr.push(value);
+        }
+
+
         // confronto i numeri generati, con quelli inseriti dall'utente:
         if (numArr.includes(value)){
-            userInputsArr.push(value); // salvo in un array i numeri individuati dall'utente.
+            userNumIdentified.push(value); // salvo in un array i numeri individuati dall'utente.
         }
     
     }
 
     // il software dice quanti e quali dei numeri sono stati individuati.
-    displayMessage.textContent = `Hai individuato ${userInputsArr.length} numeri: ${userInputsArr.join(", ")} `;
+    displayMessage.textContent = `Hai individuato ${userNumIdentified.length} numeri: ${userNumIdentified.join(", ")} `;
 
 });
 
