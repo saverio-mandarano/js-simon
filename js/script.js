@@ -15,7 +15,7 @@ const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 50, 5);
 addElementLi(numArr);
 
 // Creo un intervallo che chiama la funzione ogni 1000 millisecondi (1 secondo)
-let timeLeft = 10;
+let timeLeft = 30;
 const intervalId = setInterval(function(){
     // Decremento il tempo, aggiorno il Countdown in display.
     timeLeft--;
