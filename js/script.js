@@ -10,16 +10,20 @@ const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 99, 5);
 addElementLi(numArr);
 
 // Creo un intervallo che chiama la funzione ogni 1000 millisecondi (1 secondo)
-let timeLeft = 30;
+let timeLeft = 5;
 const intervalId = setInterval(function(){
-    // Decremento il tempo, aggiorno il Countdown in display, e fermo l'intervallo quando arrivo a 0.
+    // Decremento il tempo, aggiorno il Countdown in display.
     timeLeft--;
     displayCountdown.textContent = timeLeft;
 
+    // Fermo l'intervallo quando arrivo a 0.
     if (timeLeft <= 0) {
         clearInterval(intervalId);
         displayInstructions.textContent = `Tempo scaduto!`;
+        // Allo scadere del countdown faccio scomparire i numeri.
+        displayNumList.classList.add(`d-none`); 
     }
+
 
 }, 1000);
 
