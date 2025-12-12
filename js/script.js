@@ -3,6 +3,8 @@ const displayNumList = document.getElementById(`numbers-list`);
 //Genero 5 numeri casuali univoci nell'intervallo [1, 99].
 const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 99, 5);
 
+//Aggiungo nel <ul> i numeri dentro numArr come <li>
+addElementLi(numArr);
 
 
 
