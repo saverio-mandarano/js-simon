@@ -35,8 +35,9 @@ const intervalId = setInterval(function(){
 
 }, 1000);
 
-//
+// Aggiunto evento submit
 displayForm.addEventListener(`submit`,function(e){
+    e.preventDefault(); // prevengo il comportamento di default, la pagina non viene ricaricata
 
 });
 
