@@ -26,9 +26,10 @@ const intervalId = setInterval(function(){
 
         // 2. nascondo i numeri precedentemente generati a display:
         displayNumList.classList.add(`d-none`); 
-
-        // 3. mostro 5 input in cui l'utente deve inserire i numeri precedentemente generati:
         
+        // 3. mostro 5 input in cui l'utente deve inserire i numeri precedentemente generati:
+        displayForm.classList.remove(`d-none`); 
+
     }
 
 
