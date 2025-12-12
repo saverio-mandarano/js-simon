@@ -2,6 +2,7 @@
 const displayNumList = document.getElementById(`numbers-list`);
 const displayCountdown = document.getElementById(`countdown`);
 const displayInstructions = document.getElementById(`instructions`);
+const displayForm = document.getElementById(`answers-form`);
 
 //Genero 5 numeri casuali univoci nell'intervallo [1, 99].
 const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 99, 5);
