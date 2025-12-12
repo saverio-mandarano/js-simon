@@ -48,8 +48,14 @@ displayForm.addEventListener(`submit`,function(e){
     const userNumInputArr = [];
 
     for(let i=0; i<userInputs.length; i++){
-        const inputValue = userInputs[i].value.trim(); //tolgo spazi vuoti all'inzio e alla fine.
+        const inputValue = userInputs[i].value; 
         value = Number(inputValue); //conversione stringa in numero.
+
+        // verifico se l'input inserito è vuoto, o se non è un numero:
+        // if(inputValue === "" || isNaN(value)) {
+        //     displayMessage.textContent = `Hai dimenticato un campo vuoto, o inserito numero non valido, riprova!`;
+        //     return;
+        // }
 
         // confronto il numero inserito, con quelli già inseriti dall'utente:
         if(userNumInputArr.includes(value)){
@@ -59,7 +65,6 @@ displayForm.addEventListener(`submit`,function(e){
         else{
             userNumInputArr.push(value);
         }
-
 
         // confronto i numeri generati, con quelli inseriti dall'utente:
         if (numArr.includes(value)){
