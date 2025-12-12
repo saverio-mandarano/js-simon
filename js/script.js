@@ -42,21 +42,25 @@ const intervalId = setInterval(function(){
 displayForm.addEventListener(`submit`,function(e){
     e.preventDefault(); // prevengo il comportamento di default: la pagina non viene ricaricata.
     
-    // confronto i numeri generati, con quelli inseriti dall'utente:
     let counter = 0;
+    let num;
+    const userInputsArr = [];
 
     for(let i=0; i<userInputs.length; i++){
-        userNumberInput = Number(userInputs[i].value);
+        num = Number(userInputs[i].value);
 
-        if (numArr.includes(userNumberInput)){
-            console.log(`${userNumberInput}, è presente nell'array`);
+        // confronto i numeri generati, con quelli inseriti dall'utente:
+        if (numArr.includes(num)){
+            console.log(`${num}, è presente nell'array`);
+            userInputsArr[counter] = num; // salvo in un array i numeri individuati dall'utente.
             counter++; // incremento il contatore che mi tiene traccia dei numeri individuati dall'utente.
         }
         else {
-            console.log(`${userNumberInput}, non è presente nell'array`);
+            console.log(`${num}, non è presente nell'array`);
         }
     
     }
+
 
 });
 
