@@ -17,12 +17,18 @@ const intervalId = setInterval(function(){
     timeLeft--;
     displayCountdown.textContent = timeLeft;
 
-    // Fermo l'intervallo quando arrivo a 0.
+    // Allo scadere del countdown:
+    // 1. fermo il countdown quando arrivo a 0.
     if (timeLeft <= 0) {
         clearInterval(intervalId);
-        displayInstructions.textContent = `Tempo scaduto!`;
-        // Allo scadere del countdown faccio scomparire i numeri.
+        displayInstructions.textContent = `Tempo scaduto! Inserisci i numeri.`;
+
+
+        // 2. nascondo i numeri precedentemente generati a display:
         displayNumList.classList.add(`d-none`); 
+
+        // 3. mostro 5 input in cui l'utente deve inserire i numeri precedentemente generati:
+        
     }
 
 
