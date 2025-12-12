@@ -14,7 +14,7 @@ const numArr = getRandomIntInclusiveArrayWithMaxLength(1, 50, 5);
 addElementLi(numArr);
 
 // Creo un intervallo che chiama la funzione ogni 1000 millisecondi (1 secondo)
-let timeLeft = 5;
+let timeLeft = 1;
 const intervalId = setInterval(function(){
     // Decremento il tempo, aggiorno il Countdown in display.
     timeLeft--;
@@ -41,17 +41,22 @@ const intervalId = setInterval(function(){
 // Aggiunto evento submit: voglio confrontare gli utenti inseriti dall utente con quelli generati.
 displayForm.addEventListener(`submit`,function(e){
     e.preventDefault(); // prevengo il comportamento di default: la pagina non viene ricaricata.
-
-    const numArrUser = []; 
     
-    // inserisco nell'array i numeri submitted dall'utente:
+    // confronto i numeri generati, con quelli inseriti dall'utente:
+    let counter = 0;
+
     for(let i=0; i<userInputs.length; i++){
-        numArrUser.push(Number(userInputs[i].value));
-    }
-    console.log(numArrUser);
+        userNumberInput = Number(userInputs[i].value);
 
-    // vado a confrontare i numeri generati, con quelli submitted dall'utente:
+        if (numArr.includes(userNumberInput)){
+            console.log(`${userNumberInput}, è presente nell'array`);
+            counter++; // incremento il contatore che mi tiene traccia dei numeri individuati dall'utente.
+        }
+        else {
+            console.log(`${userNumberInput}, non è presente nell'array`);
+        }
     
+    }
 
 });
 
