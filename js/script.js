@@ -43,15 +43,16 @@ const intervalId = setInterval(function(){
 displayForm.addEventListener(`submit`,function(e){
     e.preventDefault(); // prevengo il comportamento di default: la pagina non viene ricaricata.
     
-    let num;
+    let value;
     const userInputsArr = [];
 
     for(let i=0; i<userInputs.length; i++){
-        num = Number(userInputs[i].value);
+        const inputValue = userInputs[i].value.trim(); //tolgo spazi vuoti all'inzio e alla fine.
+        value = Number(inputValue); //conversione stringa in numero.
 
         // confronto i numeri generati, con quelli inseriti dall'utente:
-        if (numArr.includes(num)){
-            userInputsArr.push(num); // salvo in un array i numeri individuati dall'utente.
+        if (numArr.includes(value)){
+            userInputsArr.push(value); // salvo in un array i numeri individuati dall'utente.
         }
     
     }
