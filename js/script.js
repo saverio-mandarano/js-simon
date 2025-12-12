@@ -4,6 +4,7 @@ const displayCountdown = document.getElementById(`countdown`);
 const displayInstructions = document.getElementById(`instructions`);
 const displayForm = document.getElementById(`answers-form`);
 const userInputs = document.querySelectorAll(`.form-control`);
+const displayMessage = document.getElementById(`message`);
 
 
 
@@ -42,7 +43,6 @@ const intervalId = setInterval(function(){
 displayForm.addEventListener(`submit`,function(e){
     e.preventDefault(); // prevengo il comportamento di default: la pagina non viene ricaricata.
     
-    let counter = 0;
     let num;
     const userInputsArr = [];
 
@@ -51,19 +51,13 @@ displayForm.addEventListener(`submit`,function(e){
 
         // confronto i numeri generati, con quelli inseriti dall'utente:
         if (numArr.includes(num)){
-            console.log(`${num}, è presente nell'array`);
-            userInputsArr[counter] = num; // salvo in un array i numeri individuati dall'utente.
-            counter++; // incremento il contatore che mi tiene traccia dei numeri individuati dall'utente.
-        }
-        else {
-            console.log(`${num}, non è presente nell'array`);
+            userInputsArr.push(num); // salvo in un array i numeri individuati dall'utente.
         }
     
     }
 
     // il software dice quanti e quali dei numeri sono stati individuati.
-    console.log(`userInputsArr: ${userInputsArr}`);
-    console.log(`counter: ${counter}`);
+    displayMessage.textContent = `Hai individuato ${userInputsArr.length} numeri: ${userInputsArr.join(", ")} `;
 
 });
 
